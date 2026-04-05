@@ -3,14 +3,14 @@
   "publisher": "liuhuo23",
   "displayName": "Format Convert",
   "description": "变量名风格转换：支持小驼峰、大驼峰、蛇形、常量、短横线等格式",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/liuhuo23/format-convert.git"
   },
   "engines": {
-    "vscode": "^1.110.0"
+    "vscode": "^1.43.0"
   },
   "categories": [
     "Other"
