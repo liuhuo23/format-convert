@@ -1,0 +1,127 @@
+{
+  "name": "format-convert",
+  "displayName": "Format Convert",
+  "description": "变量名风格转换：支持小驼峰、大驼峰、蛇形、常量、短横线等格式",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/format-convert"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "format-convert.toCamelCase",
+        "title": "转为小驼峰 (camelCase)",
+        "category": "Format Convert"
+      },
+      {
+        "command": "format-convert.toPascalCase",
+        "title": "转为大驼峰 (PascalCase)",
+        "category": "Format Convert"
+      },
+      {
+        "command": "format-convert.toSnakeCase",
+        "title": "转为蛇形 (snake_case)",
+        "category": "Format Convert"
+      },
+      {
+        "command": "format-convert.toConstantCase",
+        "title": "转为大写蛇形 (CONSTANT_CASE)",
+        "category": "Format Convert"
+      },
+      {
+        "command": "format-convert.toKebabCase",
+        "title": "转为短横线 (kebab-case)",
+        "category": "Format Convert"
+      },
+      {
+        "command": "format-convert.toUpperCase",
+        "title": "转为大写 (UPPERCASE)",
+        "category": "Format Convert"
+      },
+      {
+        "command": "format-convert.toLowerCase",
+        "title": "转为小写 (lowercase)",
+        "category": "Format Convert"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "format-convert.submenu",
+        "label": "变量格式转换"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "format-convert.submenu",
+          "when": "editorHasSelection",
+          "group": "1_modification"
+        }
+      ],
+      "format-convert.submenu": [
+        { "command": "format-convert.toCamelCase",    "group": "1@1" },
+        { "command": "format-convert.toPascalCase",   "group": "1@2" },
+        { "command": "format-convert.toSnakeCase",    "group": "1@3" },
+        { "command": "format-convert.toConstantCase", "group": "1@4" },
+        { "command": "format-convert.toKebabCase",    "group": "1@5" },
+        { "command": "format-convert.toUpperCase",    "group": "2@1" },
+        { "command": "format-convert.toLowerCase",    "group": "2@2" }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "format-convert.toCamelCase",
+        "key": "ctrl+shift+alt+c",
+        "mac": "cmd+shift+alt+c",
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "command": "format-convert.toPascalCase",
+        "key": "ctrl+shift+alt+p",
+        "mac": "cmd+shift+alt+p",
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "command": "format-convert.toSnakeCase",
+        "key": "ctrl+shift+alt+s",
+        "mac": "cmd+shift+alt+s",
+        "when": "editorTextFocus && editorHasSelection"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.110.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
