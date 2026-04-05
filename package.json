@@ -1,5 +1,6 @@
 {
   "name": "format-convert",
+  "publisher": "liuhuo23",
   "displayName": "Format Convert",
   "description": "变量名风格转换：支持小驼峰、大驼峰、蛇形、常量、短横线等格式",
   "version": "0.0.1",
